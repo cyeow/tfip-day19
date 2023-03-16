@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Love Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"
+        defer></script>
+    <div class="container">
+        <div class="row mt-5 mb-5">
+        </div>
+        <div class="row">
+            <form data-th-object="${input}" action="/result" method="get">
+                <div class="row">
+                    <table class="col-6 offset-3 text-center">
+                        <tr>
+                            <th>
+                                <h2>First Person</h2>
+                            </th>
+                            <th rowspan="2">
+                                <h1><i class="bi bi-balloon-heart"></i></h1>
+                            </th>
+                            <th>
+                                <h2>Second Person</h2>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="Romeo" data-th-field="*{fname}" data-th-value="*{fname}" />
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Juliet" data-th-field="*{sname}" data-th-value="*{sname}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <button type="submit" class="btn btn-light">Calculate!</button>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+        <div class="row mt-5">
+            <div class="col text-center" data-th-object="${result}" data-th-if="${result != null}">
+                <h2>Results</h2>
+                <h1><span data-th-text="@{*{percentage} + '%'}"></span></h1>
+                <p data-th-text="*{result}"></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
